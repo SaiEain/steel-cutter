@@ -15,6 +15,68 @@
         .modal-overlay { background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }
         .canvas-container { overflow-x: auto; background: #09090b; border-radius: 0.5rem; padding: 2rem; margin-top: 1rem; }
         canvas { display: block; margin: 0 auto; background: #09090b; }
+        /* Mobile-first touch targets and compact reading layout. */
+        @media (max-width: 640px) {
+            body { padding: .75rem !important; }
+            body > div:first-child { gap: 1rem; padding-bottom: 6rem; }
+            header { align-items: flex-start !important; padding: 1rem !important; }
+            header h1 { font-size: 1.25rem; line-height: 1.45rem; }
+            header p { line-height: 1.25rem; }
+            section > div:first-child { padding: .875rem 1rem; }
+            section > div:first-child h2 { font-size: 1rem; line-height: 1.35rem; }
+            section > .p-6, section > .p-5 { padding: 1rem; }
+            input, select, textarea { min-height: 44px; font-size: 16px !important; }
+            button, [role="button"] { min-height: 44px; }
+            #applySpliceStirrups, input[type="radio"] { min-width: 20px; min-height: 20px; }
+            #customStirrupContainer, #customHookContainer { flex-wrap: wrap; }
+            #csvUpload + *, #addBeam { min-height: 44px; }
+            #addBeam { padding-left: .875rem; padding-right: .875rem; }
+            /* Keep beam entry usable without horizontal scrolling: one beam per card. */
+            #beamTbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; padding: .75rem; margin: .75rem; border: 1px solid #e4e4e7; border-radius: .75rem; background: white; box-shadow: 0 1px 2px rgb(0 0 0 / .05); }
+            #beamTbody td { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .125rem !important; min-width: 0; border: 0; background: transparent !important; box-shadow: none !important; position: static !important; }
+            #beamTbody td::before { color: #71717a; font-size: .6875rem; line-height: 1rem; font-weight: 700; white-space: normal; }
+            #beamTbody td:nth-child(1)::before { content: 'Beam label'; }
+            #beamTbody td:nth-child(2)::before { content: 'Width (in)'; }
+            #beamTbody td:nth-child(3)::before { content: 'Depth (in)'; }
+            #beamTbody td:nth-child(4)::before { content: 'Cover (in)'; }
+            #beamTbody td:nth-child(5)::before { content: 'Main dia. (mm)'; }
+            #beamTbody td:nth-child(6)::before { content: 'Top support'; }
+            #beamTbody td:nth-child(7)::before { content: 'Top mid'; }
+            #beamTbody td:nth-child(8)::before { content: 'Bottom support'; }
+            #beamTbody td:nth-child(9)::before { content: 'Bottom mid'; }
+            #beamTbody td:nth-child(10)::before { content: 'Stirrup dia. (mm)'; }
+            #beamTbody td:nth-child(11)::before { content: 'End spacing (in)'; }
+            #beamTbody td:nth-child(12)::before { content: 'Mid spacing (in)'; }
+            #beamTbody td:nth-child(13)::before { content: 'Remove beam'; margin-right: auto; }
+            #beamTbody td input { width: 4.25rem; min-width: 0; padding-left: .375rem; padding-right: .375rem; }
+            #beamTbody td:first-child, #beamTbody td:nth-child(5), #beamTbody td:nth-child(10) { grid-column: 1 / -1; }
+            #beamTbody td:first-child input { width: 5rem; }
+            table:has(#beamTbody) { display: block; width: 100%; min-width: 0 !important; }
+            table:has(#beamTbody) thead { display: none; }
+            section:has(#wizName) { position: static !important; top: auto !important; z-index: auto !important; }
+            #beamTbody td:last-child { grid-column: 1 / -1; justify-content: flex-end; border-top: 1px solid #f4f4f5; padding-top: .375rem !important; }
+            #beamTbody td:last-child button { padding: .5rem; }
+            #beamTbody:empty::after { content: 'Add a beam row to begin.'; display: block; padding: 1.25rem; color: #71717a; text-align: center; font-size: .875rem; }
+            #beamTbody { display: block; }
+            #beamTbody tr { width: auto; }
+            #beamTbody td { width: auto; }
+            #beamTbody td::before { flex: 1; }
+            #beamTbody td input { flex: 0 0 4.25rem; }
+            #beamTbody td:first-child input, #beamTbody td:nth-child(5) input, #beamTbody td:nth-child(10) input { flex-basis: 5rem; }
+            .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+            #seqContainer { padding: .75rem; }
+            .seq-block { padding: 1rem; }
+            .seq-block .del-seq { position: static; margin: 0 0 .75rem auto; display: flex; }
+            #calcBtn { width: 100%; justify-content: center; padding: 1rem; font-size: 1rem; }
+            #previewContent { padding: .75rem; }
+            #previewArea > div > div:first-child { padding: 1rem; align-items: stretch; }
+            #previewArea > div > div:first-child > div:last-child { width: 100%; flex-direction: column; }
+            #exportDxfBtn, #triggerSaveBtn { width: 100%; justify-content: center; }
+            .canvas-container { padding: .75rem; margin-top: .5rem; }
+            .modal-overlay { align-items: flex-end; }
+            #msgModalBox { width: 100%; margin: 0; padding: 1.25rem; border-radius: 1.25rem 1.25rem 0 0; }
+            #msgButtons { flex-wrap: wrap; }
+        }
     </style>
 </head>
 <body class="text-zinc-800 p-4 md:p-6 min-h-screen">
